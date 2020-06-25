@@ -46,13 +46,13 @@ def update(screen):
 
         # Snake events
         keys = pygame.key.get_pressed()
-        if keys[K_LEFT]:
+        if keys[K_LEFT] or keys[K_a]:
             snake_obj.set_direct('left')
-        elif keys[K_RIGHT]:
+        elif keys[K_RIGHT] or keys[K_d]:
             snake_obj.set_direct('right')
-        elif keys[K_UP]:
+        elif keys[K_UP] or keys[K_w]:
             snake_obj.set_direct('up')
-        elif keys[K_DOWN]:
+        elif keys[K_DOWN] or keys[K_s]:
             snake_obj.set_direct('down')
 
         if snake_obj.x == apple_obj.x and snake_obj.y == apple_obj.y:
