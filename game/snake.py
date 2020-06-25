@@ -6,7 +6,7 @@ from game.settings import default_settings
 class Snake(GameObject):
     def __init__(self, x, y, img, screen):
         super().__init__(x, y, img, screen)
-        self.velocity = 25
+        self.velocity = default_settings['cell_width']
         self.tail = []
         self.direction = {
             'right': True,
