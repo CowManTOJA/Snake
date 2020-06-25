@@ -6,8 +6,8 @@ class GameObject(ABC):
     def __init__(self, x, y, img, screen):
         self.x = x
         self.y = y
-        self.width = default_settings['grid']
-        self.height = default_settings['grid']
+        self.width = default_settings['cell_width']
+        self.height = default_settings['cell_height']
         self.img = img
         self.screen = screen
 

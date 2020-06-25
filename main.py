@@ -6,7 +6,7 @@ from utils import *
 def setup_screen():
     screen_res = (default_settings['width'], default_settings['height'])
     screen = pygame.display.set_mode(screen_res)
-    pygame.display.set_caption('Snake by Paweł Niewiarowski')
+    pygame.display.set_caption('Snake!')
     pygame.display.set_icon(pygame.image.load(graphics['icon']))
 
     return screen
@@ -17,7 +17,7 @@ def update(screen):
     bg = pygame.image.load(graphics['bg'])
 
     # Size of picture
-    correct_size = (default_settings['grid'], default_settings['grid'])
+    correct_size = (default_settings['cell_width'], default_settings['cell_height'])
 
     # Load images and check if they have correct size
     tail_img = check_img_size(pygame.image.load(graphics['tail']), correct_size)

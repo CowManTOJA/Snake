@@ -1,11 +1,12 @@
 # Game settings
 default_settings = {
-    'grid': 25,     # One cell in grid
-    'width': 600,   # Window with(px)
-    'height': 600,  # Window height(px)
-    'run': True,    # Game is running...(boolean)
-    'FPS': 10,      # Frame per second(int)
-    'score': 0,     # Player score(int)
+    'cell_width': 25,   # Cell width(px)
+    'cell_height': 25,  # Cell height(px)
+    'width': 600,       # Window with(px)
+    'height': 600,      # Window height(px)
+    'run': True,        # Game is running...(boolean)
+    'FPS': 10,          # Frame per second(int)
+    'score': 0,         # Player score(int)
 }
 
 # Paths to graphics
