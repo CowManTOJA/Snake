@@ -73,6 +73,7 @@ def update(screen):
         snake_obj.move()
 
         # Set background
+        screen.fill((0, 205, 0))
         screen.blit(bg, bg.get_rect())
 
         # Updates objects
