@@ -5,10 +5,10 @@ from game.settings import default_settings
 
 class Apple(GameObject):
     def create(self, snake_obj=None):
-        self.x = (randint(1, (default_settings['width'] // default_settings['grid'])) * default_settings['grid']) - \
-                 default_settings['grid']
-        self.y = (randint(1, (default_settings['height'] // default_settings['grid'])) * default_settings['grid']) - \
-                 default_settings['grid']
+        self.x = (randint(1, (default_settings['width'] // default_settings['cell_width'])) * default_settings[
+            'cell_width']) - default_settings['cell_width']
+        self.y = (randint(1, (default_settings['height'] // default_settings['cell_height'])) * default_settings[
+            'cell_height']) - default_settings['cell_height']
 
         # Check if apple will not be rendered in Snake
         if snake_obj is not None:
