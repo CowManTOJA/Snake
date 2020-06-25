@@ -72,9 +72,6 @@ def update(screen):
 
         snake_obj.move()
 
-        if snake_obj.check_death():
-            default_settings['run'] = False
-
         # Set background
         screen.blit(bg, bg.get_rect())
 
@@ -84,6 +81,9 @@ def update(screen):
 
         # Refresh
         pygame.display.update()
+
+        if snake_obj.check_death():
+            default_settings['run'] = False
 
 
 if __name__ == '__main__':
