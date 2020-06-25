@@ -1,6 +1,6 @@
-from game_object import GameObject
+from game_classes.game_object import GameObject
 from random import randint
-from settings import default_settings
+from game_classes.settings import default_settings
 
 
 class Apple(GameObject):

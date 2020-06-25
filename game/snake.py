@@ -1,6 +1,6 @@
 import pygame
-from game_object import GameObject
-from settings import default_settings
+from game_classes.game_object import GameObject
+from game_classes.settings import default_settings
 
 
 class Snake(GameObject):

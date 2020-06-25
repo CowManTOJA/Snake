@@ -1,4 +1,4 @@
-from game_object import GameObject
+from game_classes.game_object import GameObject
 
 
 class Tail(GameObject):
