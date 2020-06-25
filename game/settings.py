@@ -1,5 +1,6 @@
 # Game settings
 default_settings = {
+    'grid': 25,     # One cell in grid
     'width': 600,   # Window with(px)
     'height': 600,  # Window height(px)
     'run': True,    # Game is running...(boolean)

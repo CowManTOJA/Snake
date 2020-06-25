@@ -1,12 +1,13 @@
 from abc import ABC
+from .settings import *
 
 
 class GameObject(ABC):
     def __init__(self, x, y, img, screen):
         self.x = x
         self.y = y
-        self.width = 25
-        self.height = 25
+        self.width = default_settings['grid']
+        self.height = default_settings['grid']
         self.img = img
         self.screen = screen
 

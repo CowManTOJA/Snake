@@ -1,5 +1,6 @@
 from pygame.locals import *
 from game import *
+from utils import *
 
 
 def setup_screen():
@@ -14,9 +15,14 @@ def setup_screen():
 def update(screen):
     # Load images
     bg = pygame.image.load(graphics['bg'])
-    tail_img = pygame.image.load(graphics['tail'])
-    head_img = pygame.image.load(graphics['head'])
-    apple_img = pygame.image.load(graphics['apple'])
+
+    # Size of picture
+    correct_size = (default_settings['grid'], default_settings['grid'])
+
+    # Load images and check if they have correct size
+    tail_img = check_img_size(pygame.image.load(graphics['tail']), correct_size)
+    head_img = check_img_size(pygame.image.load(graphics['head']), correct_size)
+    apple_img = check_img_size(pygame.image.load(graphics['apple']), correct_size)
 
     # Create objects
     clock = pygame.time.Clock()
