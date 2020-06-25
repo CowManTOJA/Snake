@@ -1,6 +1,6 @@
 import pygame
-from game_classes.game_object import GameObject
-from game_classes.settings import default_settings
+from game.game_object import GameObject
+from game.settings import default_settings
 
 
 class Snake(GameObject):
@@ -75,7 +75,7 @@ class Snake(GameObject):
         elif self.current_direction == 'down':
             self.screen.blit(pygame.transform.rotate(self.img, 180), pos)
 
-    def update_tail(self):
+    def grow(self):
         if not self.tail:
             return
 

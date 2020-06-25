@@ -1,12 +1,6 @@
-import pygame
 from pygame.locals import *
-from settings import default_settings
-from settings import graphics
-from snake import Snake
-from apple import Apple
-from tail import Tail
+from game import *
 import sys
-import os
 
 
 def setup():
@@ -33,8 +27,8 @@ def update(screen):
 
     # Create objects
     clock = pygame.time.Clock()
-    snake = Snake(0, 0, head_img, screen)
-    apple = Apple(apple_img, screen)
+    snake_obj = Snake(0, 0, head_img, screen)
+    apple_obj = Apple(apple_img, screen)
 
     # Main loop
     while default_settings['run']:
@@ -54,38 +48,40 @@ def update(screen):
         # Snake events
         keys = pygame.key.get_pressed()
         if keys[K_LEFT]:
-            snake.set_direct('left')
+            snake_obj.set_direct('left')
         elif keys[K_RIGHT]:
-            snake.set_direct('right')
+            snake_obj.set_direct('right')
         elif keys[K_UP]:
-            snake.set_direct('up')
+            snake_obj.set_direct('up')
         elif keys[K_DOWN]:
-            snake.set_direct('down')
+            snake_obj.set_direct('down')
 
-        if snake.x == apple.x and snake.y == apple.y:
-            apple.eat()
+        if snake_obj.x == apple_obj.x and snake_obj.y == apple_obj.y:
+            apple_obj.create(snake_obj)
 
-            if not len(snake.tail):
-                new_tail = Tail(snake.x, snake.y, tail_img, snake.screen)
+            if not len(snake_obj.tail):
+                new_tail = Tail(snake_obj.x, snake_obj.y, tail_img, snake_obj.screen)
             else:
-                new_tail = Tail(snake.tail[len(snake.tail) - 1].x, snake.tail[len(snake.tail) - 1].y, tail_img,
-                                snake.screen)
-            snake.tail.append(new_tail)
+                new_tail = Tail(snake_obj.tail[len(snake_obj.tail) - 1].x,
+                                snake_obj.tail[len(snake_obj.tail) - 1].y,
+                                tail_img,
+                                snake_obj.screen)
 
+            snake_obj.tail.append(new_tail)
             default_settings['score'] += 1
 
-        snake.move()
+        snake_obj.move()
 
-        if snake.check_death():
+        if snake_obj.check_death():
             default_settings['run'] = False
 
         # Set background
         screen.blit(bg, bg.get_rect())
 
         # Updates objects
-        apple.update()
-        snake.update_tail()
-        snake.update()
+        apple_obj.update()
+        snake_obj.grow()
+        snake_obj.update()
 
         # Refresh
         pygame.display.update()
