@@ -11,6 +11,7 @@ def setup():
     screen_res = (default_settings['width'], default_settings['height'])
     screen = pygame.display.set_mode(screen_res)
     pygame.display.set_caption('Snake by Paweł Niewiarowski')
+    pygame.display.set_icon(pygame.image.load(graphics['icon']))
 
     return screen
 

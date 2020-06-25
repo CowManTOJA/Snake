@@ -11,5 +11,5 @@ graphics = {
     'tail': './graphics/tail.png',
     'head': './graphics/head.png',
     'apple': './graphics/apple.png',
-    'icon': None
+    'icon': './graphics/icon.png'
 }
