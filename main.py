@@ -27,7 +27,8 @@ def update(screen):
     # Create objects
     clock = pygame.time.Clock()
     snake_obj = Snake(0, 0, head_img, screen)
-    apple_obj = Apple(apple_img, screen)
+    apple_obj = Apple(0, 0, apple_img, screen)
+    apple_obj.create(snake_obj)
 
     # Main loop
     while default_settings['run']:

@@ -4,10 +4,6 @@ from game.settings import default_settings
 
 
 class Apple(GameObject):
-    def __init__(self, img, screen):
-        self.create()
-        super().__init__(self.x, self.y, img, screen)
-
     def create(self, snake_obj=None):
         self.x = (randint(1, (default_settings['width'] // 25)) * 25) - 25
         self.y = (randint(1, (default_settings['height'] // 25)) * 25) - 25
