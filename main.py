@@ -1,13 +1,8 @@
 from pygame.locals import *
 from game import *
-import sys
 
 
-def setup():
-    # Init
-    pygame.init()
-
-    # Screen
+def setup_screen():
     screen_res = (default_settings['width'], default_settings['height'])
     screen = pygame.display.set_mode(screen_res)
     pygame.display.set_caption('Snake by Paweł Niewiarowski')
@@ -18,13 +13,10 @@ def setup():
 
 def update(screen):
     # Load images
-    try:
-        bg = pygame.image.load(graphics['bg'])
-        tail_img = pygame.image.load(graphics['tail'])
-        head_img = pygame.image.load(graphics['head'])
-        apple_img = pygame.image.load(graphics['apple'])
-    except pygame.error:
-        sys.exit('Where are the graphics?')
+    bg = pygame.image.load(graphics['bg'])
+    tail_img = pygame.image.load(graphics['tail'])
+    head_img = pygame.image.load(graphics['head'])
+    apple_img = pygame.image.load(graphics['apple'])
 
     # Create objects
     clock = pygame.time.Clock()
@@ -33,7 +25,7 @@ def update(screen):
 
     # Main loop
     while default_settings['run']:
-        pygame.display.set_caption(f'Snake by Paweł Niewiarowski!   Score: {default_settings["score"]}')
+        pygame.display.set_caption(f'Snake!   Your score: {default_settings["score"]}')
         clock.tick(default_settings['FPS'])
 
         # Events
@@ -87,9 +79,6 @@ def update(screen):
         pygame.display.update()
 
 
-def main():
-    update(setup())
-
-
 if __name__ == '__main__':
-    main()
+    pygame.init()
+    update(setup_screen())
