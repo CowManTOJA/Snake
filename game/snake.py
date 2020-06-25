@@ -75,7 +75,6 @@ class Snake(GameObject):
         elif self.current_direction == 'down':
             self.screen.blit(pygame.transform.rotate(self.img, 180), pos)
 
-    def grow(self):
         if not self.tail:
             return
 

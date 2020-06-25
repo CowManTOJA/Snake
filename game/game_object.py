@@ -1,4 +1,3 @@
-import pygame
 from abc import ABC
 
 
@@ -12,12 +11,6 @@ class GameObject(ABC):
         self.screen = screen
 
     def update(self):
-        if self.img is None:
-            pos_x = self.x
-            pos_y = self.y
-            pygame.draw.rect(self.screen, (255, 255, 255), (pos_x, pos_y, self.width, self.height))
-            return
-
         pos = (self.x, self.y)
         self.screen.blit(self.img, pos)
 

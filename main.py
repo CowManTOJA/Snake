@@ -81,7 +81,6 @@ def update(screen):
 
         # Updates objects
         apple_obj.update()
-        snake_obj.grow()
         snake_obj.update()
 
         # Refresh
