@@ -31,19 +31,22 @@ def update(screen):
     apple_obj.create(snake_obj)
 
     # Main loop
-    while default_settings['run']:
-        pygame.display.set_caption(f'Snake!   Your score: {default_settings["score"]}')
+    score = 0
+    run = True
+
+    while run:
+        pygame.display.set_caption(f'Snake!   Your score: {score}')
         clock.tick(default_settings['FPS'])
 
         # Events
         events = pygame.event.get()
         for event in events:
             if event.type == pygame.QUIT:
-                default_settings['run'] = False
+                run = False
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    default_settings['run'] = False
+                    run = False
 
         # Snake events
         keys = pygame.key.get_pressed()
@@ -68,7 +71,7 @@ def update(screen):
                                 snake_obj.screen)
 
             snake_obj.tail.append(new_tail)
-            default_settings['score'] += 1
+            score += 1
 
         snake_obj.move()
 
@@ -84,7 +87,7 @@ def update(screen):
         pygame.display.update()
 
         if snake_obj.check_death():
-            default_settings['run'] = False
+            run = False
 
 
 if __name__ == '__main__':
