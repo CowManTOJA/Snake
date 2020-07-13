@@ -1,7 +1,5 @@
 from pygame.locals import *
 from game import *
-from utils import *
-
 
 def setup_screen():
     screen_res = (default_settings['width'], default_settings['height'])
