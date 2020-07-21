@@ -2,8 +2,8 @@
 default_settings = {
     'cell_width': 25,   # Cell width(px)
     'cell_height': 25,  # Cell height(px)
-    'width': 600,       # Window with(px)
-    'height': 600,      # Window height(px)
+    'width': 500,       # Window with(px)
+    'height': 500,      # Window height(px)
     'FPS': 10,          # Frame per second(int)
 }
 
