@@ -18,6 +18,9 @@ class Snake(GameObject):
         self.last_position = None
         self.rotate = 0
 
+    def __len__(self):
+        return len(self.tail)
+
     def move(self):
         self.last_position = (self.x, self.y)
         if self.direction['right']:

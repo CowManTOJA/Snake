@@ -1,5 +1,8 @@
 from pygame.locals import *
 from game import *
+from tkinter import messagebox
+import tkinter
+
 
 def setup_screen():
     screen_res = (default_settings['width'], default_settings['height'])
@@ -86,6 +89,15 @@ def update(screen):
 
         if snake_obj.check_death():
             run = False
+
+        # Check if player win
+        area = (default_settings['width'] / default_settings['cell_width']) * (
+                    default_settings['height'] / default_settings['cell_height'])
+        if len(snake_obj) == area:
+            root = tkinter.Tk()
+            root.withdraw()
+
+            messagebox.showinfo('Good job!', 'You win the game!')
 
 
 if __name__ == '__main__':
