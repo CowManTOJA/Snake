@@ -1,8 +1,7 @@
-from abc import ABC
 from .settings import *
 
 
-class GameObject(ABC):
+class GameObject:
     def __init__(self, x, y, img, screen):
         self.x = x
         self.y = y
