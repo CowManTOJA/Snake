@@ -1,3 +1,3 @@
 # Snake
 :C
-![Screenshot][https://screenshot/img.png]
+![Screenshot](https://github.com/CowManTOJA/snake/blob/master/screenshot/img.png?raw=true)
