@@ -14,24 +14,19 @@ def setup_screen():
 
 
 def update(screen):
-    # Load images
     bg = pygame.image.load(graphics['bg'])
 
-    # Size of picture
     correct_size = (default_settings['cell_width'], default_settings['cell_height'])
 
-    # Load images and check if they have correct size
     tail_img = check_img_size(pygame.image.load(graphics['tail']), correct_size)
     head_img = check_img_size(pygame.image.load(graphics['head']), correct_size)
     apple_img = check_img_size(pygame.image.load(graphics['apple']), correct_size)
 
-    # Create objects
     clock = pygame.time.Clock()
     snake_obj = Snake(0, 0, head_img, screen)
     apple_obj = Apple(0, 0, apple_img, screen)
     apple_obj.create(snake_obj)
 
-    # Main loop
     score = 0
     run = True
 
@@ -39,7 +34,6 @@ def update(screen):
         pygame.display.set_caption(f'Snake!   Your score: {score}')
         clock.tick(default_settings['FPS'])
 
-        # Events
         events = pygame.event.get()
         for event in events:
             if event.type == pygame.QUIT:
@@ -49,7 +43,6 @@ def update(screen):
                 if event.key == pygame.K_ESCAPE:
                     run = False
 
-        # Snake events
         keys = pygame.key.get_pressed()
         if keys[K_LEFT] or keys[K_a]:
             snake_obj.set_direct('left')
@@ -76,21 +69,17 @@ def update(screen):
 
         snake_obj.move()
 
-        # Set background
         screen.fill((0, 205, 0))
         screen.blit(bg, bg.get_rect())
 
-        # Updates objects
         apple_obj.update()
         snake_obj.update()
 
-        # Refresh
         pygame.display.update()
 
         if snake_obj.check_death():
             run = False
 
-        # Check if player win
         area = (default_settings['width'] / default_settings['cell_width']) * (
                     default_settings['height'] / default_settings['cell_height'])
         if len(snake_obj) == area:
@@ -98,7 +87,6 @@ def update(screen):
             root.withdraw()
 
             messagebox.showinfo('Good job!', 'You win the game!')
-
 
 if __name__ == '__main__':
     pygame.init()

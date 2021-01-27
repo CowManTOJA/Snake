@@ -67,7 +67,6 @@ class Snake(GameObject):
             self.y = 0
 
     def update(self):
-        # Update head
         pos = (self.x, self.y)
 
         if self.current_direction == 'right':
@@ -79,7 +78,6 @@ class Snake(GameObject):
         elif self.current_direction == 'down':
             self.screen.blit(pygame.transform.rotate(self.img, 180), pos)
 
-        # Update tail
         if not self.tail:
             return
 

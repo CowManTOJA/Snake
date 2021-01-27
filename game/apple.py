@@ -10,7 +10,6 @@ class Apple(GameObject):
         self.y = (randint(1, (default_settings['height'] // default_settings['cell_height'])) * default_settings[
             'cell_height']) - default_settings['cell_height']
 
-        # Check if apple will not be rendered in Snake
         if snake_obj is not None:
             for snake_element in snake_obj.tail:
                 if snake_element.x == self.x and snake_element.y == self.y:
